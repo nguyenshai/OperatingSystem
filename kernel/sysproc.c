@@ -91,3 +91,21 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// int
+// sys_hello(void) 
+// {
+//   printf("Hello, World!\n");
+//   return 0;
+// }
+
+uint64
+sys_trace(void)
+{
+  int mask;
+
+  argint(0, &mask);          // Gọi trực tiếp, không dùng if
+  myproc()->trace_mask = mask;     // Gán giá trị vào cấu trúc tiến trình
+  
+  return 0;
+}
